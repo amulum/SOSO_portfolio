@@ -1,0 +1,43 @@
+SOSO_PROJECT
+E-Commerce ini berisi dengan product skincare dan cosmetic yg saat ini tengah banyak peminatnya
+Fitur di dalamnya mengedepankan penggolongan produk yang lebih spesifik yaitu filter berdasarkan Department, Categorie, dan Sub-Categorie.
+
+Desain Awal
+Pihak terkait di dalamnya yaitu ada Admin, Seller, dan Customer/User
+Menggunakan 3 decorator yaitu admin_required, seller_required, dan user_required untuk lebih memudahkan restriksi untuk tiap method
+
+Admin:
+Wewenang admin ke pihak seller:
+- Create akun seller karna untuk menjadi seller harus diverifikasi oleh admin dengan melampirkan dokumen dll
+- Delete akun seller
+- get seller by id
+- get seller all
+Wewenang admin ke pihak customer/user:
+- Delete akun customer/user
+- get customer/user by id
+- get customer/user all
+
+Admin memiliki endpoint tambahan yaitu /admin/ongkir yang nantinya aka digunakan untuk menghitung ongkir, cek kota, provinsi, dan postal code.
+ada kendala di api cek ongkir dan api tersebut kurang flexible untuk yg free.
+solusi nantinya saat pembuatan web akan menghitung ongkir menggunakan plugin tambahan dari luar yang lebih flexible
+
+Admin memiliki method get popular item di /admin/product. endpoint ini akan menampilkan product yang sering terjual untuk setiap bulannya dan untuk kasus kali ini hanya di ambil 1 product terpilih, didalam code juga dilampirkan query untuk mengambil popular item ini
+
+Seller:
+- get dan edit untuk dirinya sendiri
+- create product
+- delete product
+- put patch product
+- get product by id or contain name(substring search dalam string)
+
+User/Customer :
+- get dan edit untuk dirinya sendiri tapi tidak dapat merubah username dan user.id tidak ditampilkan di layar user
+- get product by contain name sehingga lebih mudah pencarian product tidak harus nama produk yg lengkap
+- register user siapapun bisa register user
+User/customer memiliki method /user/mybag disana kita bisa menambahkan product yg akan di checkout nantinya
+selain itu juga bisa menghapus barand di dalam bag, dan mengubah jumlahnya sesuai kebutuhan
+saat menggunakan method get di /user/mybag juga sudah bisa ditampilkan sub total yg akan dibayarkan nantinya dan menampilkan total item yg ada di dalam mybag
+
+kedepannya akan menambah fitur baru yaitu affilate program dimana user yang terdaftar mendapatkan kupon discont dengan minimal belanja tertentu
+dan untuk setiap customer yg menggunakan kupon tersebut, nantinya user affilate akan mendapatkan komisi
+
